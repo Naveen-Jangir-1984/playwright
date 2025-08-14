@@ -1,4 +1,4 @@
-// Generated from: features\example.feature
+// Generated from: Features\example.feature
 import { test } from "../../Fixtures/fixtures.ts";
 
 test.describe('Login feature', () => {
@@ -24,7 +24,7 @@ test.describe('Login feature', () => {
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('features\\example.feature'),
+  $uri: ({}, use) => use('Features\\example.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
 });
 

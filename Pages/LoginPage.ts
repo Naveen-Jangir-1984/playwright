@@ -1,17 +1,16 @@
-import { Page } from '@playwright/test';
-import { config } from '../testConfig';
+import { Page } from "@playwright/test";
+import { config } from "../testConfig";
 
 export class LoginPage {
-
-	readonly username;
-	readonly password;
-	readonly login;
+  readonly username;
+  readonly password;
+  readonly login;
 
   constructor(private page: Page) {
-		this.page = page;
-		this.username = this.page.locator(`#user-name`);
-		this.password = this.page.locator(`#password`);
-		this.login = this.page.locator(`#login-button`);
+    this.page = page;
+    this.username = this.page.locator(`#username`);
+    this.password = this.page.locator(`#password`);
+    this.login = this.page.locator(`#Login`);
   }
 
   async navigateTo() {
@@ -21,6 +20,6 @@ export class LoginPage {
   async loginAs(username: string, password: string) {
     await this.username.fill(username);
     await this.password.fill(password);
-		await this.login.click();
+    await this.login.click();
   }
 }

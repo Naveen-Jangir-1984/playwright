@@ -1,18 +1,21 @@
-import { test as base, createBdd } from 'playwright-bdd';
-import { LoginPage } from '../Pages/LoginPage';
-import { InventoryPage } from '../Pages/InventoryPage';
+import { test as base, createBdd } from "playwright-bdd";
+import { Pages } from "../Pages/Pages";
+import { ScenarioContext } from "../Utilities/ScenarioContext";
 
-type typePage = {
-  loginPage: LoginPage;
-  inventoryPage: InventoryPage;
+type typePages = {
+  pages: Pages;
 };
 
-export const test = base.extend<typePage>({
-  loginPage: async ({ page }, use) => {
-    await use(new LoginPage(page));
+type typeContext = {
+  scenarioContext: ScenarioContext;
+};
+
+export const test = base.extend<typePages & typeContext>({
+  pages: async ({ page }, use) => {
+    await use(new Pages(page));
   },
-  inventoryPage: async ({ page }, use) => {
-    await use(new InventoryPage(page));
+  scenarioContext: async ({}, use) => {
+    await use(new ScenarioContext());
   },
 });
 

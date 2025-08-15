@@ -1,49 +1,46 @@
-const qaUrl = "";
-const stgUrl = "https://www.saucedemo.com/";
+const qaUrl = "https://login.salesforce.com/";
+const stgUrl = "https://login.salesforce.com/";
 
 export interface User {
   username: string;
   password: string;
   description?: string;
   role?: string;
-};
+}
 
 export interface ConfigType {
   baseUrl: string;
   users: { [key: string]: User };
-};
+}
 
 const qaConfig: ConfigType = {
   baseUrl: qaUrl,
   users: {
-    Standard: {
-      role: "Tester",
-      username: "standard_user",
-      password: "secret_sauce",
-    }
-  }
+    "Anita Jangir": {
+      username: "anitajangir86-l1p1@force.com",
+      password: "AJ14011986",
+    },
+    "Manju Raghunathan": {
+      username: "manjubharathiraghunathan622@agentforce.com",
+      password: "sanasarra@15",
+    },
+  },
 };
 
 const stgConfig: ConfigType = {
   baseUrl: stgUrl,
   users: {
-    StandardUser: {
+    "Anita Jangir": {
       role: "Tester",
-      username: "standard_user",
-      password: "secret_sauce",
+      username: "anitajangir86-l1p1@force.com",
+      password: "AJ14011986",
     },
-    ProblemUser: {
-      role: "Tester",
-      username: "problem_user",
-      password: "secret_sauce",
+    "Manju Raghunathan": {
+      username: "manjubharathiraghunathan622@agentforce.com",
+      password: "sanasarra@15",
     },
-    LockedUser: {
-      role: "Tester",
-      username: "locked_out_user",
-      password: "secret_sauce",
-    }
-  }
+  },
 };
 
-const environment = process.env.TEST_ENV || "stg";
+const environment = process.env.TEST_ENV || "qa";
 export const config: ConfigType = environment === "qa" ? qaConfig : stgConfig;

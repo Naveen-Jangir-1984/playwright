@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx bddgen && npx playwright test && npx ts-node ./Utilities/inject-worker.ts && npx playwright show-report"
+    "test:headed": "npx bddgen && npx playwright test --headed",
+    "test:debug": "npx bddgen && npx playwright test --debug"
   },
   "keywords": [],
   "author": "",

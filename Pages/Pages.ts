@@ -1,14 +1,17 @@
 import { Page } from "@playwright/test";
-import { LoginPage } from "./LoginPage";
-import { DashboardPage } from "./DashboardPage";
+import { Login } from "./Login";
+import { Dashboard } from "./Dashboard";
+import { Sales } from "./Applications/Sales";
 
 export class Pages {
-  readonly loginPage: LoginPage;
-  readonly dashboardPage: DashboardPage;
+  readonly login: Login;
+  readonly dashboard: Dashboard;
+  readonly sales: Sales;
 
   constructor(private page: Page) {
     this.page = page;
-    this.loginPage = new LoginPage(this.page);
-    this.dashboardPage = new DashboardPage(this.page);
+    this.login = new Login(this.page);
+    this.dashboard = new Dashboard(this.page);
+    this.sales = new Sales(this.page);
   }
 }

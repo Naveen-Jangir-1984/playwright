@@ -3,8 +3,8 @@ import { test } from "../../Fixtures/fixtures.ts";
 
 test.describe('Access', () => {
 
-  test('Login', async ({ Given, page, pages, Then }) => { 
-    await Given('user has logged in as "Anita Jangir"', null, { page, pages }); 
+  test('Login as Anita', async ({ Given, page, pages, scenarioContext, Then }) => { 
+    await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 
     await Then('user has logged out', null, { pages }); 
   });
 

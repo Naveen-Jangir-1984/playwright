@@ -14,7 +14,7 @@ export default defineConfig({
   fullyParallel: true,
   workers: workers,
   use: {
-    headless: false,
+    headless: true,
     trace: "retain-on-failure",
     screenshot: "on",
     video: "retain-on-failure",

@@ -11,12 +11,12 @@ const getUser = (name: string) => {
 Given("user has logged in as {string}", async ({ page, pages, scenarioContext }, name: string) => {
   scenarioContext.set("user", name);
   user = getUser(name);
-  await pages.loginPage.navigateTo();
-  await pages.loginPage.loginAs(user.username, user.password);
+  await pages.login.navigateTo();
+  await pages.login.loginAs(user.username, user.password);
   await page.waitForLoadState();
 });
 
-Then("user has logged out", async ({ pages, scenarioContext }) => {
-  await pages.dashboardPage.logOut();
-  await expect(pages.loginPage.login).toBeVisible();
+Then("user has logged out", async ({ pages }) => {
+  await pages.dashboard.signout();
+  await expect(pages.login.signin).toBeVisible();
 });

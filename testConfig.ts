@@ -20,10 +20,6 @@ const qaConfig: ConfigType = {
       username: "anitajangir86-l1p1@force.com",
       password: "AJ14011986",
     },
-    "Manju Raghunathan": {
-      username: "manjubharathiraghunathan622@agentforce.com",
-      password: "sanasarra@15",
-    },
   },
 };
 
@@ -34,10 +30,6 @@ const stgConfig: ConfigType = {
       role: "Tester",
       username: "anitajangir86-l1p1@force.com",
       password: "AJ14011986",
-    },
-    "Manju Raghunathan": {
-      username: "manjubharathiraghunathan622@agentforce.com",
-      password: "sanasarra@15",
     },
   },
 };

@@ -3,13 +3,13 @@ import { Given, When, Then, After } from "../Fixtures/fixtures";
 import { DataTable } from "playwright-bdd";
 
 When("user {string} the lead", async ({ pages, scenarioContext }, action: string, dataTable?: DataTable) => {
-  // click on leads object
+  // click on leads object to display records before create or delete
   await pages.sales.navigateTo("Leads");
   switch (action) {
     case "creates":
-      const data = dataTable?.hashes();
       // click New button
       await pages.sales.leads.clickOnNew();
+      const data = dataTable?.hashes();
       if (data) {
         const timestamp = new Date().getTime();
         // fill data

@@ -8,7 +8,7 @@ export class Sales {
   constructor(private page: Page) {
     this.page = page;
     this.leads = new Leads(this.page);
-    this.object = (object: string) => this.page.locator(`xpath=//div[contains(@class, "oneAppNavContainer")]//a[@title="${object}"]`);
+    this.object = (object: string) => this.page.locator(`//div[contains(@class, "oneAppNavContainer")]//a[@title="${object}"]`);
   }
   // navigate to ab object from nav bar
   async navigateTo(name: string) {

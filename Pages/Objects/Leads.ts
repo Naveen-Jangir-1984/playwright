@@ -13,15 +13,15 @@ export class Leads {
 
   constructor(private page: Page) {
     this.page = page;
-    this.newBtn = this.page.locator(`xpath=//div[@title="New"]`);
+    this.newBtn = this.page.locator(`//a[@title="New"]`);
     this.saveBtn = this.page.locator(`[name="SaveEdit"]`);
     this.editBtn = this.page.locator(`[name="Edit"]`);
-    this.deleteBtn = this.page.locator(`xpath=//button//span[text()="Delete"]`);
-    this.record = (name: string) => this.page.locator(`xpath=//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
-    this.recordAction = (action: string) => this.page.locator(`xpath=//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);
-    this.textField = (label: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//input`);
-    this.dropDown = (label: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//button`);
-    this.dropDownOption = (label: string, option: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//*[contains(@class, "slds-listbox")]//lightning-base-combobox-item//span[text()="${option}"]`);
+    this.deleteBtn = this.page.locator(`//button//span[text()="Delete"]`);
+    this.record = (name: string) => this.page.locator(`//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
+    this.recordAction = (action: string) => this.page.locator(`//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);
+    this.textField = (label: string) => this.page.locator(`//label[text()="${label}"]/parent::div//input`);
+    this.dropDown = (label: string) => this.page.locator(`//label[text()="${label}"]/parent::div//button`);
+    this.dropDownOption = (label: string, option: string) => this.page.locator(`//label[text()="${label}"]/parent::div//*[contains(@class, "slds-listbox")]//lightning-base-combobox-item//span[text()="${option}"]`);
   }
 
   // click on New button

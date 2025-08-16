@@ -9,7 +9,7 @@ export class Dashboard {
     this.page = page;
     this.userProfile = this.page.locator(`button[class*="userProfile"]`);
     this.logout = this.page.locator(`a[class*="logout"]`);
-    this.application = (name: string) => this.page.locator(`xpath=//li//span[text()="${name}"]/ancestor::a`);
+    this.application = (name: string) => this.page.locator(`//li//span[text()="${name}"]/ancestor::a`);
   }
 
   // sign out

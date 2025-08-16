@@ -1,6 +1,7 @@
-Feature: Workflows
+@sales
+Feature: Sales
 
-  @sales @leads
+  @leads
   Scenario: 01 - Create, Qualify and Delete a lead
     Given user has logged in as "Anita Jangir"
     When user select application as "Sales"

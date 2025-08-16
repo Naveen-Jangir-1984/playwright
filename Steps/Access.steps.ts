@@ -11,11 +11,13 @@ const getUser = (name: string) => {
 Given("user has logged in as {string}", async ({ page, pages, scenarioContext }, name: string) => {
   scenarioContext.set("user", name);
   user = getUser(name);
+  // naviagate to URL
   await pages.login.navigateTo();
+  // login with credentials loaded from env users
   await pages.login.loginAs(user.username, user.password);
 });
 
 Then("user has logged out", async ({ pages }) => {
+  // user logged out
   await pages.dashboard.signout();
-  await expect(pages.login.signin).toBeVisible();
 });

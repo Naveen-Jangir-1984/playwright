@@ -3,7 +3,7 @@ import { test } from "../../Fixtures/fixtures.ts";
 
 test.describe('Access', () => {
 
-  test('Login as Anita', async ({ Given, page, pages, scenarioContext, Then }) => { 
+  test('01 - Login', { tag: ['@access', '@login'] }, async ({ Given, page, pages, scenarioContext, Then }) => { 
     await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 
     await Then('user has logged out', null, { pages }); 
   });
@@ -19,5 +19,5 @@ test.use({
 });
 
 const bddFileData = [ // bdd-data-start
-  {"pwTestLine":6,"pickleLine":3,"tags":[],"steps":[{"pwStepLine":7,"gherkinStepLine":4,"keywordType":"Context","textWithKeyword":"Given user has logged in as \"Anita Jangir\"","stepMatchArguments":[{"group":{"start":22,"value":"\"Anita Jangir\"","children":[{"start":23,"value":"Anita Jangir","children":[{"children":[]}]},{"children":[{"children":[]}]}]},"parameterTypeName":"string"}]},{"pwStepLine":8,"gherkinStepLine":5,"keywordType":"Outcome","textWithKeyword":"Then user has logged out","stepMatchArguments":[]}]},
+  {"pwTestLine":6,"pickleLine":5,"tags":["@access","@login"],"steps":[{"pwStepLine":7,"gherkinStepLine":6,"keywordType":"Context","textWithKeyword":"Given user has logged in as \"Anita Jangir\"","stepMatchArguments":[{"group":{"start":22,"value":"\"Anita Jangir\"","children":[{"start":23,"value":"Anita Jangir","children":[{"children":[]}]},{"children":[{"children":[]}]}]},"parameterTypeName":"string"}]},{"pwStepLine":8,"gherkinStepLine":7,"keywordType":"Outcome","textWithKeyword":"Then user has logged out","stepMatchArguments":[]}]},
 ]; // bdd-data-end

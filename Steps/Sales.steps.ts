@@ -2,24 +2,43 @@ import { expect } from "@playwright/test";
 import { Given, When, Then, After } from "../Fixtures/fixtures";
 import { DataTable } from "playwright-bdd";
 
-When("user {string} a {string} with below details", async ({ pages }, action: string, object: string, dataTable: DataTable) => {
-  const data = dataTable.hashes();
+When("user {string} the lead", async ({ pages, scenarioContext }, action: string, dataTable?: DataTable) => {
+  // click on leads object
+  await pages.sales.navigateTo("Leads");
   switch (action) {
     case "creates":
+      const data = dataTable?.hashes();
+      // click New button
       await pages.sales.leads.clickOnNew();
-      for (const record of data) {
-        await pages.sales.leads.fillValueForLabelAs(record["Last Name"], "Last Name");
-        await pages.sales.leads.fillValueForLabelAs(record["Company"], "Company");
+      if (data) {
+        const timestamp = new Date().getTime();
+        // fill data
+        for (const record of data) {
+          const name = record["Last Name"] + "_" + timestamp;
+          await pages.sales.leads.fillValueForLabelAs(name, "Last Name");
+          await pages.sales.leads.fillValueForLabelAs(record["Company"], "Company");
+          scenarioContext.set("Name", name);
+        }
+        // click Save button
+        await pages.sales.leads.clickOnSave();
       }
-      await pages.sales.leads.clickOnSave();
       break;
+    case "deletes":
+      const leadName = scenarioContext.get<string>("Name");
+      if (leadName !== undefined) {
+        // delete the matching lead from table
+        await pages.sales.leads.deleteALeadWithNameAs(leadName);
+      }
     default:
       break;
   }
 });
 
 When("user changes the {string} to {string}", async ({ pages }, label: string, status: string) => {
+  // click Edit button
   await pages.sales.leads.clickOnEdit();
+  // change status
   await pages.sales.leads.selectValueForLabelAs(status, label);
+  // click Save button
   await pages.sales.leads.clickOnSave();
 });

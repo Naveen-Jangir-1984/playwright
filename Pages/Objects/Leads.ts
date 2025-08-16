@@ -1,23 +1,27 @@
 import { Page } from "@playwright/test";
 
 export class Leads {
-  readonly button;
   readonly textField;
   readonly dropDown;
   readonly dropDownOption;
   readonly newBtn;
   readonly saveBtn;
   readonly editBtn;
+  readonly deleteBtn;
+  readonly record;
+  readonly recordAction;
 
   constructor(private page: Page) {
     this.page = page;
-    this.newBtn = this.page.locator(`xpath=//div[text()="New"]/ancestor::a`);
+    this.newBtn = this.page.locator(`xpath=//div[@title="New"]`);
     this.saveBtn = this.page.locator(`[name="SaveEdit"]`);
     this.editBtn = this.page.locator(`[name="Edit"]`);
-    this.button = (name: string) => this.page.locator(`xpath=//div[text()="${name}"]/ancestor::a`);
+    this.deleteBtn = this.page.locator(`xpath=//button//span[text()="Delete"]`);
+    this.record = (name: string) => this.page.locator(`xpath=//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
+    this.recordAction = (action: string) => this.page.locator(`xpath=//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);
     this.textField = (label: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//input`);
     this.dropDown = (label: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//button`);
-    this.dropDownOption = (label: string, option: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//*[contains(@class, "slds-listbox")]//span[text()="${option}"]/ancestor::lightning-base-combobox-item`);
+    this.dropDownOption = (label: string, option: string) => this.page.locator(`xpath=//label[text()="${label}"]/parent::div//*[contains(@class, "slds-listbox")]//lightning-base-combobox-item//span[text()="${option}"]`);
   }
 
   // click on New button
@@ -34,14 +38,17 @@ export class Leads {
   }
   // enter the text based on label and value
   async fillValueForLabelAs(value: string, label: string) {
-    await this.page.waitForTimeout(1000);
     await this.textField(label).fill(value);
   }
   // select the dropdown option based on label and value
   async selectValueForLabelAs(value: string, label: string) {
-    await this.page.waitForTimeout(1000);
     await this.dropDown(label).click();
-    await this.page.waitForTimeout(1000);
     await this.dropDownOption(label, value).click();
+  }
+  // delete a lead based on name
+  async deleteALeadWithNameAs(name: string) {
+    await this.record(name).click();
+    await this.recordAction("Delete").click();
+    await this.deleteBtn.click();
   }
 }

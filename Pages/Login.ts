@@ -21,5 +21,6 @@ export class Login {
     await this.username.fill(username);
     await this.password.fill(password);
     await this.signin.click();
+    await this.page.waitForLoadState();
   }
 }

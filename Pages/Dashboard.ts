@@ -16,6 +16,7 @@ export class Dashboard {
   async signout() {
     await this.userProfile.click();
     await this.logout.click();
+    await this.page.waitForLoadState();
   }
   // select application based on Name
   async selectApplication(name: string) {

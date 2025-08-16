@@ -13,7 +13,6 @@ Given("user has logged in as {string}", async ({ page, pages, scenarioContext },
   user = getUser(name);
   await pages.login.navigateTo();
   await pages.login.loginAs(user.username, user.password);
-  await page.waitForLoadState();
 });
 
 Then("user has logged out", async ({ pages }) => {

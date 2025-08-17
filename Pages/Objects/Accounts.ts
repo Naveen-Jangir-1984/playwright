@@ -15,7 +15,7 @@ export class Accounts {
     this.page = page;
     this.newBtn = this.page.locator(`//a[@title="New"]`);
     this.saveBtn = this.page.locator(`[name="SaveEdit"]`);
-    this.editBtn = this.page.locator(`[name="Edit"]`);
+    this.editBtn = this.page.getByRole("button", { name: "Edit", exact: true });
     this.deleteBtn = this.page.locator(`//button//span[text()="Delete"]`);
     this.record = (name: string) => this.page.locator(`//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
     this.recordAction = (action: string) => this.page.locator(`//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);

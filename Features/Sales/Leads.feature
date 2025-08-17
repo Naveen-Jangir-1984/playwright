@@ -2,7 +2,7 @@
 Feature: Leads
 
   @leads
-  Scenario: 01 - Create, Qualify and Delete a lead
+  Scenario Outline: Create, Qualify/Unqualify and Delete a lead
     Given user has logged in as "Anita Jangir"
     When user select application as "Sales"
     And user "creates" the lead
@@ -10,6 +10,11 @@ Feature: Leads
       | Lastname  | ABC CORP |
     And user changes the lead status to "Contacted"
     And user changes the lead status to "Nurturing"
-    And user changes the lead status to "Qualified"
+    And user changes the lead status to "<Status>"
     And user "deletes" the lead
     Then user has logged out
+
+    Examples:
+      | Status      |
+      | Qualified   |
+      | Unqualified |

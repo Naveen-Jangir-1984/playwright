@@ -42,3 +42,12 @@ When("user {string} the opportunity", async ({ pages, scenarioContext }, action:
       break;
   }
 });
+
+When("user changes the opportunity stage to {string}", async ({ pages }, status: string) => {
+  // click Edit button
+  await pages.sales.opportunties.clickOnEdit();
+  // change status
+  await pages.sales.opportunties.selectValueForLabelAs(status, "Stage");
+  // click Save button
+  await pages.sales.opportunties.clickOnSave();
+});

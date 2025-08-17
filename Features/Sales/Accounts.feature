@@ -2,7 +2,7 @@
 Feature: Accounts
 
   @accounts
-  Scenario: 01 - Create and Delete an account
+  Scenario: Create and Delete an account
     Given user has logged in as "Anita Jangir"
     When user select application as "Sales"
     And user "creates" the account

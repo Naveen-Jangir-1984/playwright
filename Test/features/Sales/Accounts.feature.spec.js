@@ -3,7 +3,7 @@ import { test } from "../../../Fixtures/fixtures.ts";
 
 test.describe('Accounts', () => {
 
-  test('01 - Create and Delete an account', { tag: ['@sales', '@accounts'] }, async ({ Given, page, pages, scenarioContext, When, And, Then }) => { 
+  test('Create and Delete an account', { tag: ['@sales', '@accounts'] }, async ({ Given, page, pages, scenarioContext, When, And, Then }) => { 
     await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 
     await When('user select application as "Sales"', null, { pages }); 
     await And('user "creates" the account', {"dataTable":{"rows":[{"cells":[{"value":"Account Name"}]},{"cells":[{"value":"Account"}]}]}}, { pages, scenarioContext }); 

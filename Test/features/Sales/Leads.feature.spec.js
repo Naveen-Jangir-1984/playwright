@@ -1,7 +1,7 @@
-// Generated from: Features\Sales.feature
-import { test } from "../../Fixtures/fixtures.ts";
+// Generated from: Features\Sales\Leads.feature
+import { test } from "../../../Fixtures/fixtures.ts";
 
-test.describe('Sales', () => {
+test.describe('Leads', () => {
 
   test('01 - Create, Qualify and Delete a lead', { tag: ['@sales', '@leads'] }, async ({ Given, page, pages, scenarioContext, When, And, Then }) => { 
     await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 
@@ -20,7 +20,7 @@ test.describe('Sales', () => {
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('Features\\Sales.feature'),
+  $uri: ({}, use) => use('Features\\Sales\\Leads.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
 });
 

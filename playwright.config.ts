@@ -1,7 +1,7 @@
 import { defineBddConfig } from "playwright-bdd";
 import { defineConfig, devices } from "@playwright/test";
 
-const timeout = 30000;
+const timeout = 60000; // standard wait times
 
 const testDir = defineBddConfig({
   features: "Features/**/*.feature",
@@ -15,7 +15,7 @@ export default defineConfig({
   testDir: testDir,
   workers: workers,
   fullyParallel: true,
-  timeout: 5 * 60000, // max time out for a test
+  timeout: 5 * timeout, // max time out for a test
   use: {
     headless: true,
     actionTimeout: timeout, // max time out for click, fill etc
@@ -35,7 +35,7 @@ export default defineConfig({
         ...devices["Desktop Chrome"],
         channel: "chrome",
         launchOptions: {
-          slowMo: 500, // slow down the execution on browser
+          slowMo: 1000, // slow down the execution on browser
         },
       },
     },

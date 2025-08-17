@@ -1,5 +1,5 @@
-// Generated from: Features\Opportunities.feature
-import { test } from "../../Fixtures/fixtures.ts";
+// Generated from: Features\Sales\Opportunities.feature
+import { test } from "../../../Fixtures/fixtures.ts";
 
 test.describe('Opportunities', () => {
 
@@ -19,7 +19,7 @@ test.describe('Opportunities', () => {
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('Features\\Opportunities.feature'),
+  $uri: ({}, use) => use('Features\\Sales\\Opportunities.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
 });
 

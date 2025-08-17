@@ -1,5 +1,5 @@
 @sales
-Feature: Sales
+Feature: Leads
 
   @leads
   Scenario: 01 - Create, Qualify and Delete a lead

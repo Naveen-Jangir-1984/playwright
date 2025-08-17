@@ -2,7 +2,7 @@
 Feature: Contacts
 
   @contacts
-  Scenario: Create and Delete an contact
+  Scenario: Create and Delete a Contact
     Given user has logged in as "Anita Jangir"
     When user select application as "Sales"
     And user "creates" the account

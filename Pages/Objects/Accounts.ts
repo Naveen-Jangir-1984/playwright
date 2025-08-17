@@ -1,13 +1,13 @@
 import { Page } from "@playwright/test";
 
 export class Accounts {
-  readonly textField;
-  readonly dropDown;
-  readonly dropDownOption;
   readonly newBtn;
   readonly saveBtn;
   readonly editBtn;
   readonly deleteBtn;
+  readonly textField;
+  readonly dropDown;
+  readonly dropDownOption;
   readonly record;
   readonly recordAction;
 

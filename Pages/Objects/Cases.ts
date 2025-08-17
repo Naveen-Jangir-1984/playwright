@@ -1,10 +1,11 @@
 import { Page } from "@playwright/test";
 
-export class Leads {
+export class Cases {
   readonly newBtn;
   readonly saveBtn;
   readonly editBtn;
   readonly deleteBtn;
+  readonly caseNumber;
   readonly textField;
   readonly dropDown;
   readonly dropDownOption;
@@ -17,6 +18,7 @@ export class Leads {
     this.saveBtn = this.page.locator(`[name="SaveEdit"]`);
     this.editBtn = this.page.getByRole("button", { name: "Edit", exact: true });
     this.deleteBtn = this.page.locator(`//button//span[text()="Delete"]`);
+    this.caseNumber = this.page.locator(`//*[contains(@class, "entityNameTitle")]/parent::h1//lightning-formatted-text`).last();
     this.record = (name: string) => this.page.locator(`//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
     this.recordAction = (action: string) => this.page.locator(`//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);
     this.textField = (label: string) => this.page.locator(`//label[text()="${label}"]/parent::*//input`);
@@ -52,9 +54,13 @@ export class Leads {
     await this.dropDownOption(label, value).click();
   }
   // delete a lead based on name
-  async deleteALeadWithNameAs(name: string) {
+  async deleteACaseWithNumberAs(name: string) {
     await this.record(name).click();
     await this.recordAction("Delete").click();
     await this.deleteBtn.click();
+  }
+  // get case number
+  async getCaseNumber() {
+    return await this.caseNumber.textContent();
   }
 }

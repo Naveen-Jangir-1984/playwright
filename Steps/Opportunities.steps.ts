@@ -28,9 +28,9 @@ When("user {string} the opportunity", async ({ pages, scenarioContext }, action:
           await pages.sales.opportunties.selectValueForLabelAs(record["Forecast Category"], "Forecast Category");
           scenarioContext.set("Opportunity Name", name);
         }
-        // click Save button
-        await pages.sales.opportunties.clickOnSave();
       }
+      // click Save button
+      await pages.sales.opportunties.clickOnSave();
       break;
     case "deletes":
       const opportunityName = scenarioContext.get<string>("Opportunity Name");

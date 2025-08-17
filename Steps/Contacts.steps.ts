@@ -25,9 +25,9 @@ When("user {string} the contact", async ({ pages, scenarioContext }, action: str
           await pages.sales.contacts.pickValueForLabelAs(accountName, "Account Name");
           scenarioContext.set("Contact Name", name);
         }
-        // click Save button
-        await pages.sales.contacts.clickOnSave();
       }
+      // click Save button
+      await pages.sales.contacts.clickOnSave();
       break;
     case "deletes":
       const contactName = scenarioContext.get<string>("Contact Name");

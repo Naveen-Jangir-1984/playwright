@@ -19,9 +19,9 @@ When("user {string} the lead", async ({ pages, scenarioContext }, action: string
           await pages.sales.leads.fillValueForLabelAs(record["Company"], "Company");
           scenarioContext.set("Name", name);
         }
-        // click Save button
-        await pages.sales.leads.clickOnSave();
       }
+      // click Save button
+      await pages.sales.leads.clickOnSave();
       break;
     case "deletes":
       const leadName = scenarioContext.get<string>("Name");

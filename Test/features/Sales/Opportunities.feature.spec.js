@@ -3,7 +3,7 @@ import { test } from "../../../Fixtures/fixtures.ts";
 
 test.describe('Opportunities', () => {
 
-  test.describe('Create, Won/Lose and Delete an opportunity', () => {
+  test.describe('Create, Close and Delete an Opportunity', () => {
 
     test('Example #1', { tag: ['@sales', '@opporunities'] }, async ({ Given, page, pages, scenarioContext, When, And, Then }) => { 
       await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 

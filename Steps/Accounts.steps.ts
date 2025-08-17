@@ -18,9 +18,9 @@ When("user {string} the account", async ({ pages, scenarioContext }, action: str
           await pages.sales.accounts.fillValueForLabelAs(name, "Account Name");
           scenarioContext.set("Account Name", name);
         }
-        // click Save button
-        await pages.sales.accounts.clickOnSave();
       }
+      // click Save button
+      await pages.sales.accounts.clickOnSave();
       break;
     case "deletes":
       const accountName = scenarioContext.get<string>("Account Name");

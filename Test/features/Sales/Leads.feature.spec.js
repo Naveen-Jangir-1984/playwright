@@ -3,7 +3,7 @@ import { test } from "../../../Fixtures/fixtures.ts";
 
 test.describe('Leads', () => {
 
-  test.describe('Create, Qualify/Unqualify and Delete a lead', () => {
+  test.describe('Create, Qualify/Unqualify and Delete a Lead', () => {
 
     test('Example #1', { tag: ['@sales', '@leads'] }, async ({ Given, page, pages, scenarioContext, When, And, Then }) => { 
       await Given('user has logged in as "Anita Jangir"', null, { page, pages, scenarioContext }); 

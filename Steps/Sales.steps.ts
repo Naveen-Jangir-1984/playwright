@@ -34,11 +34,11 @@ When("user {string} the lead", async ({ pages, scenarioContext }, action: string
   }
 });
 
-When("user changes the {string} to {string}", async ({ pages }, label: string, status: string) => {
+When("user changes the lead status to {string}", async ({ pages }, status: string) => {
   // click Edit button
   await pages.sales.leads.clickOnEdit();
   // change status
-  await pages.sales.leads.selectValueForLabelAs(status, label);
+  await pages.sales.leads.selectValueForLabelAs(status, "Lead Status");
   // click Save button
   await pages.sales.leads.clickOnSave();
 });

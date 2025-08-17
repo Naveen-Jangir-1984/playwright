@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 
-export class Leads {
+export class Accounts {
   readonly textField;
   readonly dropDown;
   readonly dropDownOption;
@@ -47,12 +47,12 @@ export class Leads {
   }
   // pick the dropdown option based on label and value
   async pickValueForLabelAs(value: string, label: string) {
-    this.textField(label).click();
+    await this.textField(label).click();
     await this.textField(label).fill(value);
     await this.dropDownOption(label, value).click();
   }
-  // delete a lead based on name
-  async deleteALeadWithNameAs(name: string) {
+  // delete a opportunity based on name
+  async deleteAnAccountWithNameAs(name: string) {
     await this.record(name).click();
     await this.recordAction("Delete").click();
     await this.deleteBtn.click();

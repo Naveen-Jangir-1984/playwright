@@ -7,9 +7,9 @@ Feature: Sales
     When user select application as "Sales"
     And user "creates" the lead
       | Last Name | Company  |
-      | Jangir    | ABC CORP |
-    And user changes the "Lead Status" to "Contacted"
-    And user changes the "Lead Status" to "Nurturing"
-    And user changes the "Lead Status" to "Qualified"
+      | Lastname  | ABC CORP |
+    And user changes the lead status to "Contacted"
+    And user changes the lead status to "Nurturing"
+    And user changes the lead status to "Qualified"
     And user "deletes" the lead
     Then user has logged out

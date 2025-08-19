@@ -1,5 +1,5 @@
-const qaUrl = "https://login.salesforce.com/";
-const stgUrl = "https://login.salesforce.com/";
+import qaEnv from "./Environments/qaEnvironment.json";
+import stgEnv from "./Environments/stgEnvironment.json";
 
 export interface User {
   username: string;
@@ -13,27 +13,8 @@ export interface ConfigType {
   users: { [key: string]: User };
 }
 
-const qaConfig: ConfigType = {
-  baseUrl: qaUrl,
-  users: {
-    Admin: {
-      role: "Tester",
-      username: "manjubharathiraghunathan622@agentforce.com",
-      password: "sanasarra@15",
-    },
-  },
-};
-
-const stgConfig: ConfigType = {
-  baseUrl: stgUrl,
-  users: {
-    Admin: {
-      role: "Tester",
-      username: "manjubharathiraghunathan622@agentforce.com",
-      password: "sanasarra@15",
-    },
-  },
-};
+const qaConfig: ConfigType = qaEnv;
+const stgConfig: ConfigType = stgEnv;
 
 const environment = process.env.TEST_ENV || "stg";
 export const config: ConfigType = environment === "qa" ? qaConfig : stgConfig;

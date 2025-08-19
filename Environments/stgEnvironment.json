@@ -1,0 +1,10 @@
+{
+  "baseUrl": "https://login.salesforce.com/",
+  "users": {
+    "Admin": {
+      "role": "Tester",
+      "username": "manjubharathiraghunathan622@agentforce.com",
+      "password": "sanasarra@15"
+    }
+  }
+}

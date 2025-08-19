@@ -3,7 +3,7 @@ Feature: Opportunities
 
   @opporunities
   Scenario Outline: Create, Close and Delete an Opportunity
-    Given user has logged in as "Anita Jangir"
+    Given user has logged in as "Admin"
     When user select application as "Sales"
     And user "creates" the account
       | Account Name |

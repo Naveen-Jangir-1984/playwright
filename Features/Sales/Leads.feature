@@ -3,7 +3,7 @@ Feature: Leads
 
   @leads
   Scenario Outline: Create, Qualify/Unqualify and Delete a Lead
-    Given user has logged in as "Anita Jangir"
+    Given user has logged in as "Admin"
     When user select application as "Sales"
     And user "creates" the lead
       | Last Name | Company  |

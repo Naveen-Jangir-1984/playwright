@@ -3,7 +3,7 @@ Feature: Cases
 
   @cases
   Scenario: Create, Escalate and Delete a case
-    Given user has logged in as "Anita Jangir"
+    Given user has logged in as "Admin"
     When user select application as "Service"
     And user "creates" the account
       | Account Name |

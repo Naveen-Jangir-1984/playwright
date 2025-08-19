@@ -16,9 +16,10 @@ export interface ConfigType {
 const qaConfig: ConfigType = {
   baseUrl: qaUrl,
   users: {
-    "Anita Jangir": {
-      username: "anitajangir86-l1p1@force.com",
-      password: "AJ14011986",
+    Admin: {
+      role: "Tester",
+      username: "manjubharathiraghunathan622@agentforce.com",
+      password: "sanasarra@15",
     },
   },
 };
@@ -26,7 +27,7 @@ const qaConfig: ConfigType = {
 const stgConfig: ConfigType = {
   baseUrl: stgUrl,
   users: {
-    "Anita Jangir": {
+    Admin: {
       role: "Tester",
       username: "manjubharathiraghunathan622@agentforce.com",
       password: "sanasarra@15",

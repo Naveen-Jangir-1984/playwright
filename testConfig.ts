@@ -28,11 +28,11 @@ const stgConfig: ConfigType = {
   users: {
     "Anita Jangir": {
       role: "Tester",
-      username: "anitajangir86-l1p1@force.com",
-      password: "AJ14011986",
+      username: "manjubharathiraghunathan622@agentforce.com",
+      password: "sanasarra@15",
     },
   },
 };
 
-const environment = process.env.TEST_ENV || "qa";
+const environment = process.env.TEST_ENV || "stg";
 export const config: ConfigType = environment === "qa" ? qaConfig : stgConfig;

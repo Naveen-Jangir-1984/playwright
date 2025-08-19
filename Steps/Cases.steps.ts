@@ -20,7 +20,9 @@ When("user {string} the case", async ({ pages, scenarioContext }, action: string
             await pages.service.cases.pickValueForLabelAs(accountName, "Account Name");
           } else {
             accountName = record["Account Name"] + "_" + timestamp;
+            scenarioContext.set("Account Name", accountName);
           }
+          await pages.service.cases.selectValueForLabelAs(record["Case Origin"], "Case Origin");
         }
       }
       // click Save button

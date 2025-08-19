@@ -1,5 +1,5 @@
-// Generated from: Features\Access.feature
-import { test } from "../../Fixtures/fixtures.ts";
+// Generated from: Features\Access\Access.feature
+import { test } from "../../../Fixtures/fixtures.ts";
 
 test.describe('Access', () => {
 
@@ -14,7 +14,7 @@ test.describe('Access', () => {
 
 test.use({
   $test: ({}, use) => use(test),
-  $uri: ({}, use) => use('Features\\Access.feature'),
+  $uri: ({}, use) => use('Features\\Access\\Access.feature'),
   $bddFileData: ({}, use) => use(bddFileData),
 });
 

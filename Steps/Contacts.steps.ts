@@ -19,6 +19,7 @@ When("user {string} the contact", async ({ pages, scenarioContext }, action: str
             accountName = accountName;
           } else {
             accountName = record["Account Name"] + "_" + timestamp;
+            scenarioContext.set("Account Name", accountName);
           }
           const name = record["Last Name"] + "_" + timestamp;
           await pages.sales.contacts.fillValueForLabelAs(name, "Last Name");

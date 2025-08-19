@@ -4,7 +4,9 @@ export class Cases {
   readonly newBtn;
   readonly saveBtn;
   readonly editBtn;
+  readonly editItm;
   readonly deleteBtn;
+  readonly showMoreBtn;
   readonly caseNumber;
   readonly textField;
   readonly dropDown;
@@ -14,11 +16,13 @@ export class Cases {
 
   constructor(private page: Page) {
     this.page = page;
-    this.newBtn = this.page.locator(`//a[@title="New"]`);
-    this.saveBtn = this.page.locator(`[name="SaveEdit"]`);
+    this.newBtn = this.page.getByRole("button", { name: "New", exact: true });
+    this.saveBtn = this.page.getByRole("button", { name: "Save", exact: true });
     this.editBtn = this.page.getByRole("button", { name: "Edit", exact: true });
+    this.editItm = this.page.getByRole("menuitem", { name: "Edit", exact: true });
     this.deleteBtn = this.page.locator(`//button//span[text()="Delete"]`);
-    this.caseNumber = this.page.locator(`//*[contains(@class, "entityNameTitle")]/parent::h1//lightning-formatted-text`).last();
+    this.showMoreBtn = this.page.getByRole("button", { name: "Show more actions" });
+    this.caseNumber = this.page.locator(`//p[@title="Case Number"]/following-sibling::p//lightning-formatted-text`);
     this.record = (name: string) => this.page.locator(`//table/tbody/tr[th//a[@title="${name}"]]/td`).last();
     this.recordAction = (action: string) => this.page.locator(`//*[contains(@class, "forceActionsDropDownMenuList")]//a[@title="${action}"]`);
     this.textField = (label: string) => this.page.locator(`//label[text()="${label}"]/parent::*//input`);
@@ -36,7 +40,12 @@ export class Cases {
   }
   // click on Edit button
   async clickOnEdit() {
-    await this.editBtn.click();
+    if (await this.editBtn.isVisible()) {
+      await this.editBtn.click();
+      return;
+    }
+    await this.showMoreBtn.click();
+    await this.editItm.click();
   }
   // enter the text based on label and value
   async fillValueForLabelAs(value: string, label: string) {

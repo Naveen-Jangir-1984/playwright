@@ -19,13 +19,13 @@ When("user {string} the opportunity", async ({ pages, scenarioContext }, action:
             accountName = accountName;
           } else {
             accountName = record["Account Name"] + "_" + timestamp;
+            scenarioContext.set("Account Name", accountName);
           }
           const name = record["Opportunity Name"] + "_" + timestamp;
           await pages.sales.opportunties.fillValueForLabelAs(name, "Opportunity Name");
           await pages.sales.opportunties.pickValueForLabelAs(accountName, "Account Name");
           await pages.sales.opportunties.fillValueForLabelAs(record["Close Date"], "Close Date");
           await pages.sales.opportunties.selectValueForLabelAs(record["Stage"], "Stage");
-          await pages.sales.opportunties.selectValueForLabelAs(record["Forecast Category"], "Forecast Category");
           scenarioContext.set("Opportunity Name", name);
         }
       }

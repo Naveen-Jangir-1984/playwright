@@ -5,22 +5,38 @@ Feature: Opportunities
   Scenario Outline: Create, Close and Delete an Opportunity
     Given user has logged in as "Admin"
     When user select application as "Sales"
-    And user "creates" the account
+    And user "creates" the "Account"
       | Account Name |
       | Account      |
-    And user "creates" the opportunity
+    And user "creates" the "Opportunitie"
       | Opportunity Name | Account Name | Close Date | Stage       |
       | Opportunity      | Account      | 12/31/2030 | Prospecting |
-    And user changes the opportunity stage to "Qualification"
-    And user changes the opportunity stage to "Needs Analysis"
-    And user changes the opportunity stage to "Value Proposition"
-    And user changes the opportunity stage to "Id. Decision Makers"
-    And user changes the opportunity stage to "Perception Analysis"
-    And user changes the opportunity stage to "Proposal/Price Quote"
-    And user changes the opportunity stage to "Negotiation/Review"
-    And user changes the opportunity stage to "<Stage>"
-    And user "deletes" the opportunity
-    And user "deletes" the account
+    And user "modifies" the "Opportunitie"
+      | Stage         |
+      | Qualification |
+    And user "modifies" the "Opportunitie"
+      | Stage          |
+      | Needs Analysis |
+    And user "modifies" the "Opportunitie"
+      | Stage             |
+      | Value Proposition |
+    And user "modifies" the "Opportunitie"
+      | Stage               |
+      | Id. Decision Makers |
+    And user "modifies" the "Opportunitie"
+      | Stage               |
+      | Perception Analysis |
+    And user "modifies" the "Opportunitie"
+      | Stage                |
+      | Proposal/Price Quote |
+    And user "modifies" the "Opportunitie"
+      | Stage              |
+      | Negotiation/Review |
+    And user "modifies" the "Opportunitie"
+      | Stage   |
+      | <Stage> |
+    And user "deletes" the "Opportunitie"
+    And user "deletes" the "Account"
     Then user has logged out
 
     Examples:

@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { Given, When, Then, After, Before } from "../Fixtures/fixtures";
+import { Given, When, Then, After, Before } from "../../Fixtures/fixtures";
 import { DataTable } from "playwright-bdd";
 
 When("user {string} the case", async ({ pages, scenarioContext }, action: string, dataTable?: DataTable) => {
@@ -34,7 +34,7 @@ When("user {string} the case", async ({ pages, scenarioContext }, action: string
       const caseNumber = scenarioContext.get<string>("Case Number");
       if (caseNumber !== undefined) {
         // delete the matching case from table
-        await pages.service.cases.deleteACaseWithNumberAs(caseNumber);
+        await pages.service.cases.deleteRecordWithNameAs(caseNumber);
       }
     default:
       break;

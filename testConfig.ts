@@ -1,5 +1,5 @@
-import qaEnv from "./Environments/qaEnvironment.json";
-import stgEnv from "./Environments/stgEnvironment.json";
+import sit from "./Environments/SIT.json";
+import stg from "./Environments/STG.json";
 
 export interface User {
   username: string;
@@ -13,8 +13,8 @@ export interface ConfigType {
   users: { [key: string]: User };
 }
 
-const qaConfig: ConfigType = qaEnv;
-const stgConfig: ConfigType = stgEnv;
+const qaConfig: ConfigType = sit;
+const stgConfig: ConfigType = stg;
 
 const environment = process.env.TEST_ENV || "stg";
 export const config: ConfigType = environment === "qa" ? qaConfig : stgConfig;

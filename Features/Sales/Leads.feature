@@ -2,15 +2,19 @@
 Feature: Leads
 
   @leads
-  Scenario Outline: Create, Qualify/Unqualify and Delete a Lead
+  Scenario Outline: Create, Close and Delete a Lead
     Given user has logged in as "Admin"
     When user select application as "Sales"
-    And user "creates" the lead
+    And user "creates" the "Lead"
       | Last Name | Company  |
       | Lastname  | ABC CORP |
-    And user changes the lead status to "Working - Contacted"
-    And user changes the lead status to "<Status>"
-    And user "deletes" the lead
+    And user "modifies" the "Lead"
+      | Lead Status         |
+      | Working - Contacted |
+    And user "modifies" the "Lead"
+      | Lead Status |
+      | <Status>    |
+    And user "deletes" the "Lead"
     Then user has logged out
 
     Examples:

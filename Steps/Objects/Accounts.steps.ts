@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { Given, When, Then, After, Before } from "../Fixtures/fixtures";
+import { Given, When, Then, After, Before } from "../../Fixtures/fixtures";
 import { DataTable } from "playwright-bdd";
 
 When("user {string} the account", async ({ pages, scenarioContext }, action: string, dataTable?: DataTable) => {
@@ -26,7 +26,7 @@ When("user {string} the account", async ({ pages, scenarioContext }, action: str
       const accountName = scenarioContext.get<string>("Account Name");
       if (accountName !== undefined) {
         // delete the matching account from table
-        await pages.sales.accounts.deleteAnAccountWithNameAs(accountName);
+        await pages.sales.accounts.deleteRecordWithNameAs(accountName);
       }
     default:
       break;

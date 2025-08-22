@@ -22,7 +22,7 @@ export class Dashboard {
     await this.logout.click();
     await this.page.waitForLoadState();
   }
-  // select application based on Name
+  // select business line based on Name
   async selectApplication(name: string) {
     await this.appLauncher.click();
     await this.appLauncherInput.fill(name);
